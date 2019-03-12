@@ -1,3 +1,5 @@
 @import "./reset";
 @import "./stylesheet";
 @import "modules/user";
+@import "config/colors";
+@import "modules/flash";
