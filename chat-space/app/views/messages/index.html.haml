@@ -44,7 +44,14 @@
                   %p.chat-message__time 2019/01/15 11:58:12
                 %p.chat-message__body not message
           .chat-footer
-            %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/chat_group/28912/messages", :enctype => "multipart/form-data", :method => "post"}
+            .form
+              = form_for [@group, @message] do |f|
+                = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+                .form__mask
+                  = f.label :image, class: 'form__mask__image' do
+                    = fa_icon 'picture-o', class: 'icon'
+                    = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', class: 'form__submit'
               .chat-footer__body
                 %textarea#message_nody{:name => "message[body]", :placeholder => "type a message", :row => "1"}
                 %label.chat-footer__file
