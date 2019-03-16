@@ -43,6 +43,8 @@
                   %p.chat-message__name sample
                   %p.chat-message__time 2019/01/15 11:58:12
                 %p.chat-message__body not message
+                .messages
+                   = render @messages
           .chat-footer
             .form
               = form_for [@group, @message] do |f|
